@@ -12,7 +12,7 @@ public class Piece {
 	public enum c {
 		WHITE, BLACK
 	};
-	c player;
+	public c player;
 
 	public Piece(c player) {
 		this.player = player;

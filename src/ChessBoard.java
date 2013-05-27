@@ -13,6 +13,7 @@ public class ChessBoard extends JPanel {
 	int N = 8;
 	int dim = 400;
 	public boolean something_clicked;
+	private c turn;
 	Square squares[][] = new Square[N][N];
 	Square first, second;
 
@@ -41,8 +42,8 @@ public class ChessBoard extends JPanel {
 	}
 
 	public void startMatch() {
-
-		 for (int i = 0; i < 8; i++) {
+		turn = c.WHITE;
+		for (int i = 0; i < 8; i++) {
 			squares[i][6].setImagePath("images/wpawn.gif");
 			squares[i][6].setPiece(new Pawn(c.WHITE));
 			squares[i][1].setImagePath("images/bpawn.gif");
@@ -55,6 +56,14 @@ public class ChessBoard extends JPanel {
 			System.out.println("first");
 
 			first = square;
+			if(first.getPiece() == null) {
+				System.out.println("null!!!");
+				return;
+			}
+			if(first.getPiece().player != turn) {
+				System.out.println("move your pieces not the other's!!");
+				return;
+			}
 			first.setBackground(Color.red);
 
 			something_clicked = true;
@@ -63,10 +72,21 @@ public class ChessBoard extends JPanel {
 
 			Graphics g = first.getGraphics();
 			second = square;
+
+			if(second.getPiece() != null && second.getPiece().player == turn) {
+				System.out.println("illegal move; you can't eat you own pieces");
+				return;
+			}
+
 			this.move();
 
 			first.setBackground(first.bg_color);
 
+			if (turn == c.WHITE)
+				turn = c.BLACK;
+			else
+				turn = c.WHITE;
+			System.out.println("turn of "+ turn);
 			something_clicked = false;
 			first = null;
 			second = null;
@@ -75,6 +95,7 @@ public class ChessBoard extends JPanel {
 
 	public void move() {
 		System.out.println("move");
+
 		second.setImage(first.getImage());
 		second.setPiece(first.getPiece());
 

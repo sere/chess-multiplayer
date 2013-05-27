@@ -12,7 +12,7 @@ public class ChessBoard extends JPanel {
 
 	int N = 8;
 	int dim = 400;
-	public boolean something_clicked;
+	public boolean somethingClicked;
 	private c turn;
 	Square squares[][] = new Square[N][N];
 	Square first, second;
@@ -52,8 +52,8 @@ public class ChessBoard extends JPanel {
 	}
 
 	public void moveSelection(Square square) {
-		if (!something_clicked) {
-			System.out.println("first");
+		if (!somethingClicked) {
+			//System.out.println("first");
 
 			first = square;
 			if(first.getPiece() == null) {
@@ -66,9 +66,9 @@ public class ChessBoard extends JPanel {
 			}
 			first.setBackground(Color.red);
 
-			something_clicked = true;
+			somethingClicked = true;
 		} else {
-			System.out.println("second");
+			//System.out.println("second");
 
 			Graphics g = first.getGraphics();
 			second = square;
@@ -87,7 +87,7 @@ public class ChessBoard extends JPanel {
 			else
 				turn = c.WHITE;
 			System.out.println("turn of "+ turn);
-			something_clicked = false;
+			somethingClicked = false;
 			first = null;
 			second = null;
 		}

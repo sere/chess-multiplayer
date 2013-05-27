@@ -6,19 +6,31 @@ public class Side extends JPanel{
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);
 
 		JLabel label = new JLabel("Inizio Partita");
-		//quando aggiungiamo le azioni, aggiungiamo una label
+		//when we'll add moves, we'll add a new label
 		JButton newgame = new JButton("New");
 		JButton quitgame = new JButton("Quit");
 
 		newgame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e1){
-			//scrivere cosa fa per creare una nuova partita
+					String titleConfirm = "Wait!";
+					String messageConfirm = "Are you sure you want to start a new game?";
+					int confirmQuit = JOptionPane.showConfirmDialog(null, messageConfirm, titleConfirm, JOptionPane.OK_CANCEL_OPTION);
+					if (confirmQuit != JOptionPane.OK_OPTION){
+						return;
+					}
+			//write code to start a new match
 			}
 		});
 
 		quitgame.addActionListener(new ActionListener(){
 			public void actionPerformed(ActionEvent e2){
-			//scrivere cosa fa per chiudere la partita
+				String titleConfirm = "Wait!";
+				String messageConfirm = "Are you sure you want to quit?";
+				int confirmQuit = JOptionPane.showConfirmDialog(null, messageConfirm, titleConfirm, JOptionPane.OK_CANCEL_OPTION);
+				if (confirmQuit != JOptionPane.OK_OPTION){
+					return;
+				}
+			//write code to quit the game
 			}
 		});
 

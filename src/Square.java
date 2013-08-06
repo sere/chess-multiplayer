@@ -1,3 +1,4 @@
+
 import Implementation.Piece;
 import javax.swing.*;
 import java.awt.Color;
@@ -7,18 +8,16 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.*;
 
-
 public class Square extends JPanel implements MouseListener {
 
-	private int x;
-	private int y;
+	public int x;
+	public int y;
 	private ChessBoard chessboard;
 	public Color bg_color;
 	private String imagePath;
 	private Image image;
 	private MediaTracker m;
 	private Toolkit t;
-	private Piece piece;
 
 	public Square(Color c, int x, int y, ChessBoard ci) {
 		super();
@@ -47,18 +46,12 @@ public class Square extends JPanel implements MouseListener {
 		this.image = image;
 	}
 
-	public Piece getPiece() {
-		return this.piece;
-	}
-
-	public void setPiece(Piece piece) {
-		this.piece = piece;
-	}
-
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
 
-		/*** This is only for debugging purpose ***/
+		/**
+		 * * This is only for debugging purpose **
+		 */
 		int pos = x + y * 8;
 		g.setColor(Color.red);
 		String s = String.valueOf(pos);

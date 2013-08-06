@@ -1,6 +1,7 @@
 
+import Implementation.Battlefield;
 import Implementation.Pawn;
-import Implementation.Piece.c;
+import Implementation.Player;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -13,7 +14,8 @@ public class ChessBoard extends JPanel {
 	int N = 8;
 	int dim = 400;
 	public boolean somethingClicked;
-	private c turn;
+	private int turn;
+	private Battlefield battlefield;
 	Square squares[][] = new Square[N][N];
 	Square first, second;
 
@@ -23,8 +25,8 @@ public class ChessBoard extends JPanel {
 		layout.setColumns(8);
 		layout.setRows(8);
 
-		for (int j = 0; j < N; j++) {
-			for (int i = 0; i < N; i++) {
+		for (int i = 0; i < N; i++) {
+			for (int j = 0; j < N; j++) {
 				if ((i + j) % 2 == 0) {
 					squares[i][j] = new Square(Color.white, i, j, this);
 					this.add(squares[i][j]);
@@ -42,12 +44,11 @@ public class ChessBoard extends JPanel {
 	}
 
 	public void startMatch() {
-		turn = c.WHITE;
+		battlefield = new Battlefield();
+		turn = Player.WHITE;
 		for (int i = 0; i < 8; i++) {
-			squares[i][6].setImagePath("images/wpawn.gif");
-			squares[i][6].setPiece(new Pawn(c.WHITE));
-			squares[i][1].setImagePath("images/bpawn.gif");
-			squares[i][1].setPiece(new Pawn(c.BLACK));
+			squares[6][i].setImagePath("images/wpawn.gif");
+			squares[1][i].setImagePath("images/bpawn.gif");
 		}
 	}
 
@@ -56,11 +57,11 @@ public class ChessBoard extends JPanel {
 			//System.out.println("first");
 
 			first = square;
-			if(first.getPiece() == null) {
+			if (battlefield.isNull(first.x, first.y)) {
 				System.out.println("null!!!");
 				return;
 			}
-			if(first.getPiece().player != turn) {
+			if (battlefield.player(first.x, first.y) != turn) {
 				System.out.println("move your pieces not the other's!!");
 				return;
 			}
@@ -73,20 +74,30 @@ public class ChessBoard extends JPanel {
 			Graphics g = first.getGraphics();
 			second = square;
 
-			if(second.getPiece() != null && second.getPiece().player == turn) {
-				System.out.println("illegal move; you can't eat you own pieces");
+			if (first.x == second.x && first.y == second.y) {
+				System.out.println("deselect square");
+				/* redundant code due to lack of goto statement */
+				first.setBackground(first.bg_color);
+				somethingClicked = false;
+				first = null;
+				second = null;
 				return;
 			}
 
+			if (!battlefield.move(turn, first.x, first.y, second.x, second.y)) {
+				System.out.println("move not valid");
+				return;
+			}
 			this.move();
 
 			first.setBackground(first.bg_color);
 
-			if (turn == c.WHITE)
-				turn = c.BLACK;
-			else
-				turn = c.WHITE;
-			System.out.println("turn of "+ turn);
+			if (turn == Player.WHITE) {
+				turn = Player.BLACK;
+			} else {
+				turn = Player.WHITE;
+			}
+			System.out.println("turn of " + turn);
 			somethingClicked = false;
 			first = null;
 			second = null;
@@ -97,10 +108,8 @@ public class ChessBoard extends JPanel {
 		System.out.println("move");
 
 		second.setImage(first.getImage());
-		second.setPiece(first.getPiece());
-
 		first.setImage(null);
-		first.setPiece(null);
+
 		second.paintComponent(second.getGraphics());
 		first.paintComponent(first.getGraphics());
 

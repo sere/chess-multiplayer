@@ -54,6 +54,8 @@ public class ChessBoard extends JPanel {
 		squares[7][7].setImagePath("images/wrook.gif");
 		squares[0][0].setImagePath("images/brook.gif");
 		squares[0][7].setImagePath("images/brook.gif");
+		squares[7][3].setImagePath("images/wqueen.gif");
+		squares[0][3].setImagePath("images/bqueen.gif");
 		for (int i = 0; i < 8; i++) {
 			squares[6][i].setImagePath("images/wpawn.gif");
 			squares[1][i].setImagePath("images/bpawn.gif");

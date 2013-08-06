@@ -9,6 +9,10 @@ public class Battlefield {
 	public Piece pieces[][] = new Piece[8][8];
 
 	public Battlefield() {
+		pieces[7][1] = new Knight(7, 1, Player.WHITE);
+		pieces[7][6] = new Knight(7, 6, Player.WHITE);
+		pieces[0][1] = new Knight(0, 1, Player.BLACK);
+		pieces[0][6] = new Knight(0, 6, Player.BLACK);
 		for (int i = 0; i < 8; i++) {
 			pieces[6][i] = new Pawn(6, i, Player.WHITE);
 			pieces[1][i] = new Pawn(1, i, Player.BLACK);

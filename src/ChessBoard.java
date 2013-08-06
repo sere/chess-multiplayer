@@ -46,6 +46,10 @@ public class ChessBoard extends JPanel {
 	public void startMatch() {
 		battlefield = new Battlefield();
 		turn = Player.WHITE;
+		squares[7][1].setImagePath("images/wknight.gif");
+		squares[7][6].setImagePath("images/wknight.gif");
+		squares[0][1].setImagePath("images/bknight.gif");
+		squares[0][6].setImagePath("images/bknight.gif");
 		for (int i = 0; i < 8; i++) {
 			squares[6][i].setImagePath("images/wpawn.gif");
 			squares[1][i].setImagePath("images/bpawn.gif");

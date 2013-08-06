@@ -18,6 +18,13 @@ public class Pawn extends Piece {
 	}
 
 	public boolean isValid(int nX, int nY) {
-		return true;
+		if ((nX == x + player) && ((nY == y) || (Math.abs(nY - y) == 1))) {
+			return true;
+		}
+		if (firstMove && nX == x + 2 * player) {
+			return true;
+		}
+		System.out.println("nX, ny " + nX + " " + nY);
+		return false;
 	}
 }

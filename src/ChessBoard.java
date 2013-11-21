@@ -11,13 +11,13 @@ import javax.swing.JPanel;
 
 public class ChessBoard extends JPanel {
 
-	int N = 8;
-	int dim = 400;
-	public boolean somethingClicked;
+	private int N = 8;
+	private int dim = 400;
+	private boolean somethingClicked;
 	private int turn;
 	private Battlefield battlefield;
-	Square squares[][] = new Square[N][N];
-	Square first, second;
+	private Square squares[][] = new Square[N][N];
+	private Square first, second;
 
 	public ChessBoard() {
 
@@ -25,8 +25,8 @@ public class ChessBoard extends JPanel {
 		layout.setColumns(8);
 		layout.setRows(8);
 
-		for (int i = 0; i < N; i++) {
-			for (int j = 0; j < N; j++) {
+		for (int i = 0; i < N; i++)
+			for (int j = 0; j < N; j++)
 				if ((i + j) % 2 == 0) {
 					squares[i][j] = new Square(Color.white, i, j, this);
 					this.add(squares[i][j]);
@@ -34,9 +34,6 @@ public class ChessBoard extends JPanel {
 					squares[i][j] = new Square(Color.black, i, j, this);
 					this.add(squares[i][j]);
 				}
-			}
-		}
-
 		this.startMatch();
 		this.setPreferredSize(new Dimension(dim, dim));
 		this.setLayout(layout);
@@ -76,7 +73,7 @@ public class ChessBoard extends JPanel {
 				return;
 			}
 			if (battlefield.player(first.x, first.y) != turn) {
-				System.out.println("move your pieces not the other's!!");
+				System.out.println("move your squares not the other's!!");
 				return;
 			}
 			first.setBackground(Color.red);
@@ -106,11 +103,10 @@ public class ChessBoard extends JPanel {
 
 			first.setBackground(first.bg_color);
 
-			if (turn == Player.WHITE) {
+			if (turn == Player.WHITE)
 				turn = Player.BLACK;
-			} else {
+			else
 				turn = Player.WHITE;
-			}
 			System.out.println("turn of " + turn);
 			somethingClicked = false;
 			first = null;
@@ -118,7 +114,7 @@ public class ChessBoard extends JPanel {
 		}
 	}
 
-	public void move() {
+	private void move() {
 		System.out.println("move");
 
 		second.setImage(first.getImage());

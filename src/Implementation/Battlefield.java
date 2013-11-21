@@ -6,7 +6,7 @@ package Implementation;
  */
 public class Battlefield {
 
-	public Piece pieces[][] = new Piece[8][8];
+	private Piece pieces[][] = new Piece[8][8];
 
 	public Battlefield() {
 		pieces[7][1] = new Knight(7, 1, Player.WHITE);
@@ -30,7 +30,7 @@ public class Battlefield {
 	}
 
 	/**
-	 * this function controls if a determined move attempts to pass through an
+	 * This function controls if a determined move attempts to pass through an
 	 * occupied slot. This MUST be called after the Piece.isValid function
 	 *
 	 * @param x
@@ -44,14 +44,13 @@ public class Battlefield {
 		int distY = Math.abs(y - nY);
 
 		/* exclude consecutive slot */
-		if (distX <= 1 && distY <= 1) {
+		if (distX <= 1 && distY <= 1)
 			return false;
-		}
 		/* exclude knight  */
-		if ((distY + distX) == 3) {
+		if ((distY + distX) == 3)
 			return false;
-		}
-		/* now the move must be diagonal or orthogonal */
+		/* now the move must be diagonal or orthogonal because it has been
+		 * already called Piece.isValid */
 		assert (distX == distY || (distX == 0 || distY == 0));
 
 		int minX = Math.min(x, nX);
@@ -59,45 +58,34 @@ public class Battlefield {
 
 		if ((x - nX) * (y - nY) < 0) {
 			/* x and y discordant: only diagonal */
-			for (int i = 1; i < distY; i++) {
-				if (pieces[minX + i][Math.max(y, nY) - i] != null) {
+			for (int i = 1; i < distY; i++)
+				if (pieces[minX + i][Math.max(y, nY) - i] != null)
 					return true;
-				}
-			}
 			return false;
 		} else if ((x - nX) * (y - nY) > 0) {
 			/* x and y concordant: only diagonal */
-			for (int i = 1; i < Math.max(distX, distY); i++) {
-				if (pieces[minX + i][minY + i] != null) {
+			for (int i = 1; i < Math.max(distX, distY); i++)
+				if (pieces[minX + i][minY + i] != null)
 					return true;
-				}
-			}
 			return false;
-		} else {
-			/* orthogonal movements */
-			if (distX == 0) {
-				for (int i = 1; i < distY; i++) {
-					if (pieces[x][minY + i] != null) {
-						return true;
-					}
-				}
-				return false;
-			} else //distY == 0
-			{
-				for (int i = 1; i < distX; i++) {
-					if (pieces[minX + 1][y] != null) {
-						return true;
-					}
-				}
-				return false;
-			}
+		} else if (distX == 0) {
+			/* vertical movement */
+			for (int i = 1; i < distY; i++)
+				if (pieces[x][minY + i] != null)
+					return true;
+			return false;
+		} else { //distY == 0
+			/* horizontal movement */
+			for (int i = 1; i < distX; i++)
+				if (pieces[minX + 1][y] != null)
+					return true;
+			return false;
 		}
 	}
 
 	public boolean isNull(int x, int y) {
-		if (pieces[x][y] == null) {
+		if (pieces[x][y] == null)
 			return true;
-		}
 		return false;
 	}
 

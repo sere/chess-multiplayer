@@ -10,7 +10,7 @@ import java.lang.Math.*;
 public abstract class Piece {
 
 	public int player;
-	public int x, y;
+	protected int x, y;
 
 	public Piece(int x, int y, int player) {
 		this.player = player;

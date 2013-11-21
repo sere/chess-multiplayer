@@ -19,6 +19,10 @@ public class Battlefield {
 		pieces[0][7] = new Rook(0, 7, Player.BLACK);
 		pieces[7][3] = new Queen(7, 3, Player.WHITE);
 		pieces[0][3] = new Queen(0, 3, Player.BLACK);
+		pieces[7][2] = new Bishop(7, 2, Player.WHITE);
+		pieces[7][5] = new Bishop(7, 5, Player.WHITE);
+		pieces[0][2] = new Bishop(0, 2, Player.BLACK);
+		pieces[0][5] = new Bishop(0, 5, Player.BLACK);
 		for (int i = 0; i < 8; i++) {
 			pieces[6][i] = new Pawn(6, i, Player.WHITE);
 			pieces[1][i] = new Pawn(1, i, Player.BLACK);

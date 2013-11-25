@@ -1,10 +1,12 @@
+package Graphic;
+
 
 import javax.swing.*;
 import java.awt.*;
 
-public class Window extends JFrame {
+public class Wind extends JFrame {
 
-	public Window() {
+	public Wind() {
 		Container c = new Container();
 		c = this.getContentPane();
 		//BoxLayout box = new BoxLayout(c, BoxLayout.Y_AXIS);

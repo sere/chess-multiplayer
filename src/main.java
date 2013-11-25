@@ -1,3 +1,4 @@
+import Graphic.Wind;
 import java.awt.Container;
 import java.awt.Dimension;
 
@@ -11,7 +12,7 @@ public class main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Window wind = new Window();
+		Wind wind = new Wind();
 	}
 
 }

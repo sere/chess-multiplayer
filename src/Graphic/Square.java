@@ -1,3 +1,5 @@
+package Graphic;
+
 
 import Implementation.Piece;
 import javax.swing.*;

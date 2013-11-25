@@ -52,10 +52,11 @@ public class Square extends JPanel implements MouseListener {
 		/**
 		 * * This is only for debugging purpose **
 		 */
-		int pos = x + y * 8;
 		g.setColor(Color.red);
-		String s = String.valueOf(pos);
-		g.drawString(s, 10, 10);
+		String s = String.valueOf(x);
+		g.drawString(s, 8, 10);
+		s = String.valueOf(y);
+		g.drawString(s, 16, 10);
 
 		g.drawImage(image, 0, 0, this.getWidth(), this.getHeight(), this);
 		g.finalize();

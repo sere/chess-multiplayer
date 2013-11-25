@@ -99,7 +99,7 @@ public class Battlefield {
 			return false;
 		}
 
-		if (!pieces[x][y].isValid(nX, nY)) {
+		if (!pieces[x][y].isValid(nX, nY, (pieces[nX][nY] == null))) {
 			System.out.println("illegal: out of range for the Piece");
 			return false;
 		}

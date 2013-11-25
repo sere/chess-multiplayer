@@ -18,10 +18,20 @@ public abstract class Piece {
 		this.y = y;
 	}
 
-	public abstract boolean isValid(int nX, int nY);
+	public boolean isValid(int nX, int nY) {
+		return true;
+	}
+
+	public boolean isValid(int nX, int nY, boolean piece) {
+		return this.isValid(nX, nY);
+	}
 
 	public void move(int nX, int nY) {
 		x = nX;
 		y = nY;
+	}
+
+	public boolean canEat(int nX, int nY) {
+		return true;
 	}
 }

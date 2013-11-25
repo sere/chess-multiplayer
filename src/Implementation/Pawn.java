@@ -17,13 +17,16 @@ public class Pawn extends Piece {
 		firstMove = false;
 	}
 
-	public boolean isValid(int nX, int nY) {
-		if ((nX == x + player) && ((nY == y) || (Math.abs(nY - y) == 1))) {
+	public boolean isValid(int nX, int nY, boolean pieceIsNull) {
+		/* Normal movement */
+		if ((nX == x + player) && (nY == y) && pieceIsNull)
 			return true;
-		}
-		if (firstMove && nX == x + 2 * player) {
+		/* Capture */
+		if (Math.abs(nY - y) == 1 && !pieceIsNull)
 			return true;
-		}
+		/* Double (first) movement */
+		if (firstMove && nX == x + 2 * player && pieceIsNull)
+			return true;
 		System.out.println("nX, ny " + nX + " " + nY);
 		return false;
 	}

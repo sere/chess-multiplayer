@@ -3,6 +3,7 @@ package Graphic;
 import javax.swing.*;
 import java.awt.event.*;
 
+@SuppressWarnings("serial")
 public class Side extends JPanel{
 	public Side(){
 		BoxLayout layout = new BoxLayout(this, BoxLayout.Y_AXIS);

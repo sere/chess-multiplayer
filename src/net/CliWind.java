@@ -1,15 +1,13 @@
 package net;
 
-import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.NumberFormat;
-import java.net.*;
-import java.io.*;
 import javax.swing.*;
 
+@SuppressWarnings("serial")
 public class CliWind extends JFrame{
 	public CliWind(){
 		Container c = new Container();
@@ -45,7 +43,6 @@ public class CliWind extends JFrame{
 					
 				
 					Connect.ClientConnection(addr, portnumber);
-					new Graphic.Wind();
 					closeWindow();
 				}
 			}

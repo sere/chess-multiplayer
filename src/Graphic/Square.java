@@ -10,6 +10,7 @@ import java.awt.MediaTracker;
 import java.awt.Toolkit;
 import java.awt.event.*;
 
+@SuppressWarnings("serial")
 public class Square extends JPanel implements MouseListener {
 
 	public int x;

@@ -11,6 +11,7 @@ import java.awt.GridLayout;
 
 import javax.swing.JPanel;
 
+@SuppressWarnings("serial")
 public class ChessBoard extends JPanel {
 
 	private int N = 8;

@@ -9,6 +9,7 @@ import java.io.*;
 import javax.swing.*;
 //import net.Connecting;
 
+@SuppressWarnings("serial")
 public class SerWind extends JFrame{
 	int portnum;
 	Container c;

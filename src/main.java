@@ -1,8 +1,5 @@
 import Graphic.Wind;
-import java.awt.Container;
-import java.awt.Dimension;
-
-import javax.swing.JFrame;
+import net.StartWind;
 
 
 public class main {
@@ -12,7 +9,7 @@ public class main {
 	 */
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Wind wind = new Wind();
+		new StartWind();
 	}
 
 }

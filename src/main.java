@@ -1,4 +1,3 @@
-import Graphic.Wind;
 import net.StartWind;
 
 
@@ -11,5 +10,4 @@ public class main {
 		// TODO Auto-generated method stub
 		new StartWind();
 	}
-
 }

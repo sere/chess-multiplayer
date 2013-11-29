@@ -3,7 +3,7 @@ package net;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import Graphic.Wind;
+
 
 
 public class Connect{
@@ -31,7 +31,6 @@ public class Connect{
 				System.out.println("Error ex3-Connection: Connection Socket fail");
 				return;
 			}
-			new Wind(); 
 		}
 		
 		public static void stopConnection() throws IOException{

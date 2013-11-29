@@ -3,11 +3,12 @@ package Graphic;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
+@SuppressWarnings("serial")
 public class Wind extends JFrame {
-
+	static Container c = new Container();
 	public Wind() {
-		Container c = new Container();
 		c = this.getContentPane();
 		//BoxLayout box = new BoxLayout(c, BoxLayout.Y_AXIS);
 		BoxLayout box = new BoxLayout(c, BoxLayout.X_AXIS);
@@ -17,6 +18,7 @@ public class Wind extends JFrame {
 		//FIXME: i want to move this MinimumSize to the ChessBoard object
 		this.setMinimumSize(new Dimension(20, 20));
 		Side cside = new Side();
+		cside.setWindow(this);
 		JMenuBar cbar = createMenu();
 		//panel.add(cboard);
 		//panel.add(cside);
@@ -43,11 +45,19 @@ public class Wind extends JFrame {
 		JMenuItem iexit = new JMenuItem("Exit");
 		JMenuItem ihelp = new JMenuItem("?");
 		JMenuItem icredits = new JMenuItem("Credits");
+		
 		exitall.add(iexit);
 		help.add(ihelp);
 		help.add(icredits);
 		bar.add(exitall);
 		bar.add(help);
+		
 		return bar;
+	}
+
+	public void closeWind(ActionEvent e){
+		this.setVisible(false);
+		this.dispose();
+		System.exit(0);
 	}
 }

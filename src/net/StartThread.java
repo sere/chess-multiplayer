@@ -1,5 +1,6 @@
 package net;
 
+import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import Graphic.Wind;
@@ -14,7 +15,7 @@ public class StartThread extends Thread{
 		return;
 		}
 	
-	public static boolean ServerConnection(int port){
+	private static boolean ServerConnection(int port){
 		boolean connected=false;
 		boolean screated=false;
 		try{
@@ -38,14 +39,13 @@ public class StartThread extends Thread{
 				return false;
 			}
 			new Wind();
-			//da controllare quando si potrà testare
-			if(connected)
-				return true;
-			else
-				return true;
-				//modificare in "return false;" quando potrò testarlo
+			return(connected);
 		
-		}
+	}
+	
+	public static void stopConnection() throws IOException{
+		connectionSocket.close();
+	}
 		
 	public void alt(){
 		stop=true;

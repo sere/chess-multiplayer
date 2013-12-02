@@ -9,6 +9,7 @@ import java.io.*;
 import javax.swing.*;
 //import net.Connecting;
 
+@SuppressWarnings("serial")
 public class SerWind extends JFrame{
 	int portnum;
 	Container c;
@@ -20,6 +21,7 @@ public class SerWind extends JFrame{
 	StartThread t = new StartThread();
 	
 	public SerWind(){
+		this.setTitle("Chess");
 		String ip = null;
 		c = new Container();
 		c = this.getContentPane();

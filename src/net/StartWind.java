@@ -13,6 +13,7 @@ public class StartWind extends JFrame{
 	boolean isServer;
 	boolean isClicked=false;
 	public StartWind(){
+		this.setTitle("Chess");
 		Container c = new Container();
 		c = this.getContentPane();
 		BoxLayout box = new BoxLayout(c, BoxLayout.Y_AXIS);

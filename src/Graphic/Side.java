@@ -37,6 +37,7 @@ public class Side extends JPanel{
 					return;
 				windy.setVisible(false);
 				windy.dispose();
+				new net.StartWind();
 			}
 			
 		});

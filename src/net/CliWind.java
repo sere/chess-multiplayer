@@ -9,7 +9,9 @@ import javax.swing.*;
 
 @SuppressWarnings("serial")
 public class CliWind extends JFrame{
+
 	public CliWind(){
+		this.setTitle("Chess");
 		Container c = new Container();
 		c = this.getContentPane();
 		BoxLayout box = new BoxLayout(c, BoxLayout.Y_AXIS);

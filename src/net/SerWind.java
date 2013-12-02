@@ -21,6 +21,7 @@ public class SerWind extends JFrame{
 	StartThread t = new StartThread();
 	
 	public SerWind(){
+		this.setTitle("Chess");
 		String ip = null;
 		c = new Container();
 		c = this.getContentPane();

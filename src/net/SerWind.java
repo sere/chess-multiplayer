@@ -1,5 +1,6 @@
 package net;
 
+import Implementation.Player;
 import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
@@ -13,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import Graphic.ChessBoard;
 //import net.Connecting;
 
 @SuppressWarnings("serial")
@@ -28,6 +30,7 @@ public class SerWind extends JFrame {
 	StartThread t = new StartThread();
 
 	public SerWind() {
+		ChessBoard.PLAYER = Player.WHITE;
 		this.setTitle("Chess");
 		String ip = null;
 		c = new Container();

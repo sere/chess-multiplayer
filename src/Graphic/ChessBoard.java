@@ -1,6 +1,5 @@
 package Graphic;
 
-
 import Implementation.Battlefield;
 import Implementation.Player;
 import java.awt.Color;
@@ -12,6 +11,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class ChessBoard extends JPanel {
 
+	public static int PLAYER;
 	private int N = 8;
 	private int dim = 400;
 	private boolean somethingClicked;
@@ -71,6 +71,10 @@ public class ChessBoard extends JPanel {
 			//System.out.println("first");
 
 			first = square;
+			if (battlefield.player(first.x, first.y) != PLAYER) {
+				System.out.println("illegal: not your piece");
+				return;
+			}
 			if (battlefield.isNull(first.x, first.y)) {
 				System.out.println("null!!!");
 				return;

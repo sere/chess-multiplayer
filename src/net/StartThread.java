@@ -1,9 +1,9 @@
 package net;
 
+import Graphic.Wind;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
-import Graphic.Wind;
 
 public class StartThread extends Thread{
 	private static ServerSocket welcomeSocket;

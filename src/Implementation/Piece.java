@@ -1,8 +1,5 @@
 package Implementation;
 
-import java.awt.Point;
-import java.lang.Math.*;
-
 /**
  *
  * @author serena

@@ -1,14 +1,14 @@
 package Graphic;
 
 
-import Implementation.Piece;
-import javax.swing.*;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.MediaTracker;
 import java.awt.Toolkit;
-import java.awt.event.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import javax.swing.JPanel;
 
 @SuppressWarnings("serial")
 public class Square extends JPanel implements MouseListener {

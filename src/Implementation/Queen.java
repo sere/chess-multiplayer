@@ -13,9 +13,6 @@ public class Queen extends Piece {
 	public boolean isValid(int nX, int nY) {
 		int distX = Math.abs(x - nX);
 		int distY = Math.abs(y - nY);
-
-		if (distX == distY || distX == 0 || distY == 0)
-			return true;
-		return false;
+		return (distX == distY || distX == 0 || distY == 0);
 	}
 }

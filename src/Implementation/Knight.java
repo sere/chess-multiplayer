@@ -13,8 +13,6 @@ public class Knight extends Piece {
 	public boolean isValid(int nX, int nY) {
 		int distX = Math.abs(x - nX);
 		int distY = Math.abs(y - nY);
-		if ((distX == 1 && distY == 2) || (distX == 2 && distY == 1))
-			return true;
-		return false;
+		return ((distX == 1 && distY == 2) || (distX == 2 && distY == 1));
 	}
 }

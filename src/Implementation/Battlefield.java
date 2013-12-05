@@ -86,9 +86,7 @@ public class Battlefield {
 	}
 
 	public boolean isNull(int x, int y) {
-		if (pieces[x][y] == null)
-			return true;
-		return false;
+		return pieces[x][y] == null;
 	}
 
 	public int player(int x, int y) {

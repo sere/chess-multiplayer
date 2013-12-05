@@ -4,7 +4,6 @@ import Implementation.Battlefield;
 import Implementation.Player;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.Graphics;
 import java.awt.GridLayout;
 import javax.swing.JPanel;
 
@@ -68,61 +67,59 @@ public class ChessBoard extends JPanel {
 
 	public void moveSelection(Square square) {
 		if (!somethingClicked) {
-			//System.out.println("first");
-
+			/* Check if the square is a piece of the actual player and select
+			 * it if true.
+			 */
 			first = square;
-			if (battlefield.player(first.x, first.y) != PLAYER) {
-				System.out.println("illegal: not your piece");
-				return;
-			}
 			if (battlefield.isNull(first.x, first.y)) {
 				System.out.println("null!!!");
 				return;
 			}
-			if (battlefield.player(first.x, first.y) != turn) {
-				System.out.println("move your squares not the other's!!");
+			if (battlefield.player(first.x, first.y) != PLAYER) {
+				System.out.println("illegal: not your piece");
 				return;
 			}
-			first.setBackground(Color.red);
+			if (battlefield.player(first.x, first.y) != turn) {
+				System.out.println("illegal: not your turn");
+				return;
+			}
 
+			first.setBackground(Color.red);
 			somethingClicked = true;
 		} else {
-			//System.out.println("second");
-
-			Graphics g = first.getGraphics();
 			second = square;
-
+			/* Check if the player wants to change piece */
 			if (first.x == second.x && first.y == second.y) {
 				System.out.println("deselect square");
-				/* redundant code due to lack of goto statement */
-				first.setBackground(first.bg_color);
-				somethingClicked = false;
-				first = null;
-				second = null;
+				resetSelection();
 				return;
 			}
-
+			/* Move the piece from first to second */
 			if (!battlefield.move(turn, first.x, first.y, second.x, second.y)) {
 				System.out.println("move not valid");
 				return;
 			}
 			this.move();
 
-			first.setBackground(first.bg_color);
-
+			/* Conclude the turn */
+			resetSelection();
 			if (turn == Player.WHITE)
 				turn = Player.BLACK;
 			else
 				turn = Player.WHITE;
 			System.out.println("turn of " + turn);
-			somethingClicked = false;
-			first = null;
-			second = null;
 		}
 	}
 
+	private void resetSelection() {
+		first.setBackground(first.bg_color);
+		somethingClicked = false;
+		first = null;
+		second = null;
+	}
+
 	private void move() {
-		System.out.println("move");
+		System.out.println("Graphic.move");
 
 		second.setImage(first.getImage());
 		first.setImage(null);

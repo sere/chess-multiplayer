@@ -13,9 +13,6 @@ public class Bishop extends Piece {
 	public boolean isValid(int nX, int nY) {
 		int distX = Math.abs(x - nX);
 		int distY = Math.abs(y - nY);
-
-		if (distX == distY)
-			return true;
-		return false;
+		return distX == distY;
 	}
 }

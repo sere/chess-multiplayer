@@ -15,10 +15,7 @@ public class King extends Piece {
 	public boolean isValid(int nX, int nY) {
 		int distX = Math.abs(x - nX);
 		int distY = Math.abs(y - nY);
-
-		if (distX > 1 || distY > 1)
-			return false;
-		return true;
+		return (distX <= 1 && distY <= 1);
 	}
 
 	public void move(int nX, int nY) {

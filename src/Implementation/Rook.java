@@ -15,10 +15,7 @@ public class Rook extends Piece {
 	public boolean isValid(int nX, int nY) {
 		int distX = Math.abs(x - nX);
 		int distY = Math.abs(y - nY);
-
-		if (distX == 0 || distY == 0)
-			return true;
-		return false;
+		return (distX == 0 || distY == 0);
 	}
 
 	public void move(int nX, int nY) {
